@@ -12,6 +12,7 @@ import Header from "./Header";
 import Dummy from "./Dummy";
 import SolutionLetters from "./SolutionLetters";
 import ErrorLetters from "./ErrorLetters";
+import Form from "./Form";
 
 function App() {
   const [word, setWord] = useState("");
@@ -49,8 +50,6 @@ function App() {
 
     return errorLetters.length;
   };
-
- 
 
   const renderErrorLetters = () => {
     const errorLetters = userLetters.filter(
@@ -94,31 +93,15 @@ function App() {
       <Header />
       <main className='main'>
         <section>
-          <SolutionLetters
-          renderSolutionLetters = {renderSolutionLetters}
-          />
-          <ErrorLetters
-          renderErrorLetters ={renderErrorLetters}
-          />
-          
-          <form className='form' onSubmit={handleSubmit}>
-            <label className='title' htmlFor='last-letter'>
-              Escribe una letra:
-            </label>
-            <input
-              autoFocus
-              autoComplete='off'
-              className='form__input'
-              maxLength='1'
-              type='text'
-              name='last-letter'
-              id='last-letter'
-              value={lastLetter}
-              onKeyDown={handleKeyDown}
-              onChange={handleChange}
-            />
-          </form>
+          <SolutionLetters renderSolutionLetters={renderSolutionLetters} />
+          <ErrorLetters renderErrorLetters={renderErrorLetters} />
         </section>
+        <Form
+          lastLetter={lastLetter}
+          handleSubmit={handleSubmit}
+          handleChange={handleChange}
+          handleKeyDown={handleKeyDown}
+        />
         <Dummy numberOfErrors={getNumberOfErrors()} />
       </main>
     </div>
