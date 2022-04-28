@@ -11,6 +11,7 @@ import "../styles/Header.scss";
 import Header from "./Header";
 import Dummy from "./Dummy";
 import SolutionLetters from "./SolutionLetters";
+import ErrorLetters from "./ErrorLetters";
 
 function App() {
   const [word, setWord] = useState("");
@@ -96,11 +97,10 @@ function App() {
           <SolutionLetters
           renderSolutionLetters = {renderSolutionLetters}
           />
+          <ErrorLetters
+          renderErrorLetters ={renderErrorLetters}
+          />
           
-          <div className='error'>
-            <h2 className='title'>Letras falladas:</h2>
-            <ul className='letters'>{renderErrorLetters()}</ul>
-          </div>
           <form className='form' onSubmit={handleSubmit}>
             <label className='title' htmlFor='last-letter'>
               Escribe una letra:
