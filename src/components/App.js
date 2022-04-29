@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useLocation, matchPath } from "react-router-dom";
 
 // api
 import getWordFromApi from "../services/api";
@@ -13,6 +16,7 @@ import Dummy from "./Dummy";
 import SolutionLetters from "./SolutionLetters";
 import ErrorLetters from "./ErrorLetters";
 import Form from "./Form";
+import Footer from "./Footer";
 
 function App() {
   const [word, setWord] = useState("");
@@ -90,20 +94,34 @@ function App() {
 
   return (
     <div className='page'>
-      <Header />
-      <main className='main'>
-        <section>
-          <SolutionLetters renderSolutionLetters={renderSolutionLetters} />
-          <ErrorLetters renderErrorLetters={renderErrorLetters} />
-        </section>
-        <Form
-          lastLetter={lastLetter}
-          handleSubmit={handleSubmit}
-          handleChange={handleChange}
-          handleKeyDown={handleKeyDown}
+      <Routes>
+        <Route
+          path='/'
+          element={
+            <>
+              <Header />
+              <main className='main'>
+                <section>
+                  <SolutionLetters
+                    renderSolutionLetters={renderSolutionLetters}
+                  />
+                  <ErrorLetters renderErrorLetters={renderErrorLetters} />
+                </section>
+                <Form
+                  lastLetter={lastLetter}
+                  handleSubmit={handleSubmit}
+                  handleChange={handleChange}
+                  handleKeyDown={handleKeyDown}
+                />
+                <Dummy numberOfErrors={getNumberOfErrors()} />
+              </main>
+              <Footer />
+            </>
+          }
         />
-        <Dummy numberOfErrors={getNumberOfErrors()} />
-      </main>
+        <Route path='/Menu/instructions' element={<Footer />} />
+        <Route path='/Menu/options' element={<Footer />} />
+      </Routes>
     </div>
   );
 }
