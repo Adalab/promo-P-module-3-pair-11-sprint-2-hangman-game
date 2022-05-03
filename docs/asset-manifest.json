@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "./static/css/main.a28cb4de.css",
+    "main.js": "./static/js/main.31bd9d5b.js",
+    "static/media/blackboard.jpg": "./static/media/blackboard.7288f09fd4ddef2eb676.jpg",
+    "static/media/KgTenThousandReasons-R1ll.ttf": "./static/media/KgTenThousandReasons-R1ll.152e903334ad9b5b7845.ttf",
+    "index.html": "./index.html",
+    "main.a28cb4de.css.map": "./static/css/main.a28cb4de.css.map",
+    "main.31bd9d5b.js.map": "./static/js/main.31bd9d5b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a28cb4de.css",
+    "static/js/main.31bd9d5b.js"
+  ]
+}
