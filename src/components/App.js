@@ -17,6 +17,8 @@ import SolutionLetters from "./SolutionLetters";
 import ErrorLetters from "./ErrorLetters";
 import Form from "./Form";
 import Footer from "./Footer";
+import Instructions from "./Instructions";
+import Options from "./Options";
 
 function App() {
   const [word, setWord] = useState("");
@@ -94,13 +96,13 @@ function App() {
 
   return (
     <div className='page'>
-      <Routes>
-        <Route
-          path='/'
-          element={
-            <>
-              <Header />
-              <main className='main'>
+      <Header />
+      <main className='main'>
+        <Routes>
+          <Route
+            path='/'
+            element={
+              <>
                 <section>
                   <SolutionLetters
                     renderSolutionLetters={renderSolutionLetters}
@@ -113,15 +115,16 @@ function App() {
                   handleChange={handleChange}
                   handleKeyDown={handleKeyDown}
                 />
-                <Dummy numberOfErrors={getNumberOfErrors()} />
-              </main>
-              <Footer />
-            </>
-          }
-        />
-        <Route path='/Menu/instructions' element={<Footer />} />
-        <Route path='/Menu/options' element={<Footer />} />
-      </Routes>
+              </>
+            }
+          />
+
+          <Route path='/Menu/instructions' element={<Instructions />} />
+          <Route path='/Menu/options' element={<Options />} />
+        </Routes>
+        <Dummy numberOfErrors={getNumberOfErrors()} />
+      </main>
+      <Footer />
     </div>
   );
 }
